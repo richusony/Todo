@@ -28,8 +28,9 @@ const Todos = ({ todos, setTodos }) => {
 
   const onSave = (e) => {
     const id = parseInt(e.target.id, 10);
+    
     const newTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, task: newInput ,isEditing: false} : todo
+      todo.id === id ? { ...todo, task: newInput? newInput : todo.task ,isEditing: false} : todo
     );
     setTodos(newTodos);
   };
