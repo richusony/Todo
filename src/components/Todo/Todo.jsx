@@ -22,6 +22,8 @@ const Todo = () => {
   let month = d.getMonth();
   let year = d.getFullYear();
 
+  document.title = list[0].task + " => " + "Todo";
+document.title.trim();
   const handleSubmit = (e) => {
     e.preventDefault();
     if(!input) return alert("Enter your task!!")
