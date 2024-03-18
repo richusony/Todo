@@ -3,19 +3,11 @@ import Todos from "../Todos/Todos";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { data } from "../Todos/data";
+import { months, weekday } from "./config";
 const Todo = () => {
   const [input, setInput] = useState("");
   const [list, setList] = useState(data);
-  const weekday = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
   const d = new Date();
   let day = d.getDay();
   let date = d.getUTCDate();
@@ -23,17 +15,21 @@ const Todo = () => {
   let year = d.getFullYear();
 
   document.title = list[0].task + " => " + "Todo";
-document.title.trim();
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!input) return alert("Enter your task!!")
+    if (!input) return alert("Enter your task!!");
     setList([...list, { id: list[list.length - 1].id + 1, task: `${input}` }]);
     setInput("");
   };
   return (
     <div className="px-8 py-4 min-h-1/2 bg-[#1CA7EC] rounded-xl shadow-2xl">
-      <h1 className="text-center text-white text-2xl font-semibold">{weekday[day]}</h1>
-      <h3 className="text-center text-white text-xl">{date} {months[month]}, {year}</h3>
+      <h1 className="text-center text-white text-2xl font-semibold">
+        {weekday[day]}
+      </h1>
+      <h3 className="text-center text-white text-xl">
+        {date} {months[month]}, {year}
+      </h3>
 
       <div className="my-3 w-full flex justify-between">
         <input
@@ -53,7 +49,7 @@ document.title.trim();
         </button>
       </div>
 
-      <Todos todos={list} setTodos={setList}/>
+      <Todos todos={list} setTodos={setList} />
     </div>
   );
 };
