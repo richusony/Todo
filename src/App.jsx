@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <div style={{backgroundImage:Bg}} className='flex justify-center items-center'>
+      <div className={`h-screen bg-[#7BD5F5] flex justify-center items-center`}>
         <Todo />
       </div>
     </>
