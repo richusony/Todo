@@ -48,7 +48,7 @@ const Todos = ({ todos, setTodos }) => {
         todos.map((todo) => (
           <div
             key={todo.id}
-            className="my-2 px-3 py-2 rounded bg-slate-200 flex justify-between text-xl"
+            className="my-2 px-3 py-2 rounded bg-slate-200 flex justify-between text-sm md:text-xl"
           >
             {todo.isEditing ? (
               <div>
@@ -59,30 +59,30 @@ const Todos = ({ todos, setTodos }) => {
                 />
                 <button
                   id={todo.id}
-                  className="ml-2 px-2 py-1 bg-blue-500 rounded text-white"
+                  className="ml-2 px-2 py-1 bg-blue-500 rounded text-white shadow-md"
                   onClick={(e) => onSave(e)}
                 >
                   save
                 </button>
               </div>
             ) : (
-              <span>{todo.isDone ? <s>{todo.task}</s> : todo.task}</span>
+              <span>{todo.isDone ? <s className="text-gray-500">{todo.task}</s> : todo.task}</span>
             )}
-            <div className="ml-20 text-gray-700">
+            <div className="flex justify-between items-center ml-20 text-gray-700">
               <FontAwesomeIcon
-                className="mx-2 cursor-pointer"
+                className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
                 id={todo.id}
                 onClick={(e) => onCheck(e)}
                 icon={faCheck}
               />
               <FontAwesomeIcon
-                className="mx-2 cursor-pointer"
+                className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
                 id={todo.id}
                 onClick={(e) => onEdit(e)}
                 icon={faPenToSquare}
               />
               <FontAwesomeIcon
-                className="mx-2 cursor-pointer"
+                className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
                 id={todo.id}
                 onClick={(e) => onDelete(e)}
                 icon={faTrash}

@@ -45,7 +45,7 @@ document.title.trim();
         />
         <button
           onClick={(e) => handleSubmit(e)}
-          className="transition delay-150 ease-linear px-4 py-3 bg-[#7BD5F5] hover:bg-[#1F2F98] text-md text-center font-semibold text-white rounded-full "
+          className="transition delay-150 ease-linear px-4 py-3 bg-[#7BD5F5] hover:bg-[#1F2F98] text-md text-center font-semibold text-white rounded-full shadow-md"
         >
           <span>
             <FontAwesomeIcon icon={faPlus} />
