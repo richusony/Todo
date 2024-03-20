@@ -14,16 +14,19 @@ const Todo = () => {
   let month = d.getMonth();
   let year = d.getFullYear();
 
-  document.title = list[0].task + " => " + "Todo";
+  document.title = list.length > 0 ? list[0].task + " => " + "Todo" : "Todo";
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!input) return alert("Enter your task!!");
-    setList([...list, { id: list[list.length - 1].id + 1, task: `${input}` }]);
+    setList([
+      ...list,
+      { id: list.length ? list[list.length - 1].id + 1 : 1, task: `${input}` },
+    ]);
     setInput("");
   };
   return (
-    <div className="px-8 py-4 min-h-1/2 bg-[#1CA7EC] rounded-xl shadow-2xl">
+    <div className="px-2 md:px-8 py-4 min-h-1/2 bg-[#1CA7EC] rounded-xl shadow-2xl">
       <h1 className="text-center text-white text-2xl font-semibold">
         {weekday[day]}
       </h1>

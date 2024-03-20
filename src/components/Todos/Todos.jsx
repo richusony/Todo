@@ -28,9 +28,11 @@ const Todos = ({ todos, setTodos }) => {
 
   const onSave = (e) => {
     const id = parseInt(e.target.id, 10);
-    
+
     const newTodos = todos.map((todo) =>
-      todo.id === id ? { ...todo, task: newInput? newInput : todo.task ,isEditing: false} : todo
+      todo.id === id
+        ? { ...todo, task: newInput ? newInput : todo.task, isEditing: false }
+        : todo
     );
     setTodos(newTodos);
   };
@@ -43,16 +45,17 @@ const Todos = ({ todos, setTodos }) => {
   };
 
   return (
-    <div className="my-5">
-      {todos &&
+    <div className="transition delay-150 ease-linear my-5">
+      {todos.length ? (
         todos.map((todo) => (
           <div
             key={todo.id}
-            className="my-2 px-3 py-2 rounded bg-slate-200 flex justify-between text-sm md:text-xl"
+            className="my-2 px-3 py-2 rounded bg-slate-200 flex justify-between text-md md:text-xl"
           >
             {todo.isEditing ? (
-              <div>
+              <div className="flex justify-between items-center">
                 <input
+                  className="p-1 rounded"
                   type="text"
                   value={newInput}
                   onChange={(e) => setNewInput(e.target.value)}
@@ -66,30 +69,43 @@ const Todos = ({ todos, setTodos }) => {
                 </button>
               </div>
             ) : (
-              <span>{todo.isDone ? <s className="text-gray-500">{todo.task}</s> : todo.task}</span>
+              <>
+                <p className="">
+                  {todo.isDone ? (
+                    <s className="text-gray-500 font-semibold">{todo.task}</s>
+                  ) : (
+                    todo.task
+                  )}
+                </p>
+                <div className="flex justify-between items-center ml-20 text-gray-700">
+                  <FontAwesomeIcon
+                    className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
+                    id={todo.id}
+                    onClick={(e) => onCheck(e)}
+                    icon={faCheck}
+                  />
+                  <FontAwesomeIcon
+                    className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
+                    id={todo.id}
+                    onClick={(e) => onEdit(e)}
+                    icon={faPenToSquare}
+                  />
+                  <FontAwesomeIcon
+                    className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
+                    id={todo.id}
+                    onClick={(e) => onDelete(e)}
+                    icon={faTrash}
+                  />
+                </div>
+              </>
             )}
-            <div className="flex justify-between items-center ml-20 text-gray-700">
-              <FontAwesomeIcon
-                className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
-                id={todo.id}
-                onClick={(e) => onCheck(e)}
-                icon={faCheck}
-              />
-              <FontAwesomeIcon
-                className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
-                id={todo.id}
-                onClick={(e) => onEdit(e)}
-                icon={faPenToSquare}
-              />
-              <FontAwesomeIcon
-                className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
-                id={todo.id}
-                onClick={(e) => onDelete(e)}
-                icon={faTrash}
-              />
-            </div>
           </div>
-        ))}
+        ))
+      ) : (
+        <h1 className="text-center text-slate-100 font-semibold text-sm md:text-xl">
+          📝Add your task
+        </h1>
+      )}
     </div>
   );
 };
