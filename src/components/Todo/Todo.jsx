@@ -3,7 +3,7 @@ import Todos from "../Todos/Todos";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { data } from "../Todos/data";
-import { months, weekday } from "./config";
+import { months, weekday } from "./constants";
 const Todo = () => {
   const [input, setInput] = useState("");
   const [list, setList] = useState(data);
