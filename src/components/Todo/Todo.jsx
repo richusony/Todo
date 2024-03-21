@@ -26,7 +26,7 @@ const Todo = () => {
     setInput("");
   };
   return (
-    <div className="px-2 md:px-8 py-4 w-fit min-h-1/2 bg-[#1CA7EC] rounded-xl shadow-2xl">
+    <div className="px-2 md:px-8 py-4 min-w-[500px] h-96 bg-[#00A9FF] rounded-xl shadow-2xl">
       <h1 className="text-center text-white text-2xl font-semibold">
         {weekday[day]}
       </h1>
@@ -36,7 +36,7 @@ const Todo = () => {
 
       <div className="my-3 w-full flex justify-between">
         <input
-          className="mx-2 px-3 py-2 w-full rounded"
+          className="mx-2 px-3 py-2 w-full rounded outline-[#00A9FF]"
           type="text"
           placeholder="Enter your task"
           value={input}
@@ -44,7 +44,7 @@ const Todo = () => {
         />
         <button
           onClick={(e) => handleSubmit(e)}
-          className="transition delay-150 ease-linear px-4 py-3 bg-[#7BD5F5] hover:bg-[#1F2F98] text-md text-center font-semibold text-white rounded-full shadow-md"
+          className="transition delay-150 ease-linear px-4 py-3 bg-[#89CFF3] hover:bg-[#00A9FF] text-md text-center font-semibold text-white rounded-full shadow-md"
         >
           <span>
             <FontAwesomeIcon icon={faPlus} />

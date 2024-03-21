@@ -45,7 +45,7 @@ const Todos = ({ todos, setTodos }) => {
   };
 
   return (
-    <div className="transition delay-150 ease-linear my-5">
+    <div className="transition delay-150 ease-linear my-5 h-52 overflow-y-auto container">
       {todos.length ? (
         todos.map((todo) => (
           <div
@@ -70,7 +70,7 @@ const Todos = ({ todos, setTodos }) => {
               </div>
             ) : (
               <>
-                <p className="">
+                <p className="flex justify-center items-center">
                   {todo.isDone ? (
                     <s className="text-gray-500 font-semibold">{todo.task}</s>
                   ) : (
@@ -79,19 +79,19 @@ const Todos = ({ todos, setTodos }) => {
                 </p>
                 <div className="flex justify-between items-center ml-20 text-gray-700">
                   <FontAwesomeIcon
-                    className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
+                    className="bg-[#89CFF3] mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
                     id={todo.id}
                     onClick={(e) => onCheck(e)}
                     icon={faCheck}
                   />
                   <FontAwesomeIcon
-                    className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
+                    className="bg-[#89CFF3] mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
                     id={todo.id}
                     onClick={(e) => onEdit(e)}
                     icon={faPenToSquare}
                   />
                   <FontAwesomeIcon
-                    className="bg-blue-300 mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
+                    className="bg-[#89CFF3] mx-2 p-2 cursor-pointer rounded-lg shadow-md hover:text-gray-800"
                     id={todo.id}
                     onClick={(e) => onDelete(e)}
                     icon={faTrash}
