@@ -5,9 +5,9 @@ import useLocation from "../../Hooks/useLocation";
 
 const Location = () => {
   const location = useLocation();
-  console.log(location);
-  return location && (
-    <div className="transition delay-150 ease-linear flex justify-center items-center px-3 py-2 rounded text-center text-gray-500 font-semibold bg-[#DFF5FF] absolute left-5 top-10 shadow-xl">
+
+  return (
+    location ? <div className="transition delay-150 ease-linear flex justify-center items-center px-3 py-2 rounded text-center text-gray-500 font-semibold bg-[#DFF5FF] absolute left-5 top-10 shadow-xl">
       <FontAwesomeIcon className="mr-1" icon={faLocation} />{" "}
       {location?.state_prov + ", " + location?.country_name}
       <img
@@ -15,7 +15,7 @@ const Location = () => {
         src={location?.country_flag}
         alt="country-flag"
       />
-    </div>
+    </div> : null
   );
 };
 
